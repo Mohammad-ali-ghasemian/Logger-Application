@@ -16,5 +16,15 @@ namespace Logger_App
         {
             InitializeComponent();
         }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            if (usernameTxt.Text == "admin" && passwordTxt.Text == "admin")
+            {
+                Form2 f = new Form2();
+                this.Hide();
+                f.Show();
+            }
+        }
     }
 }
