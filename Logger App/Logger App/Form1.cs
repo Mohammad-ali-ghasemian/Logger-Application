@@ -16,5 +16,10 @@ namespace Logger_App
         {
             InitializeComponent();
         }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(usernameTxt, "error");
+        }
     }
 }
