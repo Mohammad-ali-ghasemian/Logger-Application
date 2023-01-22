@@ -21,9 +21,9 @@ namespace Logger_App
         {
             if (usernameTxt.Text == "admin" && passwordTxt.Text == "admin")
             {
-                userHomepageForm f = new userHomepageForm();
+                userHomepageForm userhomepageform = new userHomepageForm();
                 this.Hide();
-                f.Show();
+                userhomepageform.Show();
             }
         }
     }

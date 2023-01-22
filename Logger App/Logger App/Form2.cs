@@ -21,5 +21,12 @@ namespace Logger_App
         {
             Application.Exit();
         }
+
+        private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            loginForm loginform = new loginForm();
+            this.Hide();
+            loginform.Show();
+        }
     }
 }
