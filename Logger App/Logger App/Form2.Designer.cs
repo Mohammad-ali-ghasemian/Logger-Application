@@ -42,6 +42,7 @@
             this.Name = "userHomepageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logger - User Home Page";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.userHomepageForm_FormClosed);
             this.ResumeLayout(false);
 
         }

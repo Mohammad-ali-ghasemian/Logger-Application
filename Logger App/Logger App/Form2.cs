@@ -16,5 +16,10 @@ namespace Logger_App
         {
             InitializeComponent();
         }
+
+        private void userHomepageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
