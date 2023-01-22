@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.usernameLbl = new System.Windows.Forms.Label();
             this.usernameTxt = new System.Windows.Forms.TextBox();
             this.passwordTxt = new System.Windows.Forms.TextBox();
@@ -36,8 +35,6 @@
             this.loginBtn = new System.Windows.Forms.Button();
             this.maxCharUsernameLbl = new System.Windows.Forms.Label();
             this.maxCharPasswordLbl = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // usernameLbl
@@ -110,10 +107,6 @@
             this.maxCharPasswordLbl.TabIndex = 6;
             this.maxCharPasswordLbl.Text = "max char: 10";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -132,8 +125,6 @@
             this.Name = "loginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logger";
-            this.Load += new System.EventHandler(this.loginForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,7 +139,6 @@
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label maxCharUsernameLbl;
         private System.Windows.Forms.Label maxCharPasswordLbl;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
