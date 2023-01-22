@@ -33,5 +33,11 @@ namespace Logger_App
             addMemberForm addmemberform = new addMemberForm();
             addmemberform.ShowDialog();
         }
+
+        private void removeUserBtn_Click(object sender, EventArgs e)
+        {
+            removeUserForm removeuserform = new removeUserForm();
+            removeuserform.ShowDialog();
+        }
     }
 }

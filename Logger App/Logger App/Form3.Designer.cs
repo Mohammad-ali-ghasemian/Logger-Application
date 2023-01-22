@@ -101,6 +101,7 @@
             this.removeUserBtn.TabIndex = 10;
             this.removeUserBtn.Text = "remove user";
             this.removeUserBtn.UseVisualStyleBackColor = false;
+            this.removeUserBtn.Click += new System.EventHandler(this.removeUserBtn_Click);
             // 
             // adminHomepageForm
             // 
