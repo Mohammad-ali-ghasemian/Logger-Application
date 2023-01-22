@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.logoutLinkLbl = new System.Windows.Forms.LinkLabel();
+            this.logBtn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // logoutLinkLbl
@@ -42,12 +45,37 @@
             this.logoutLinkLbl.Text = "logout";
             this.logoutLinkLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.logoutLinkLbl_LinkClicked);
             // 
+            // logBtn
+            // 
+            this.logBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.logBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.logBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(240)))));
+            this.logBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.logBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logBtn.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logBtn.Location = new System.Drawing.Point(7, 41);
+            this.logBtn.Name = "logBtn";
+            this.logBtn.Size = new System.Drawing.Size(333, 28);
+            this.logBtn.TabIndex = 5;
+            this.logBtn.Text = "see log";
+            this.logBtn.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(1, 75);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(342, 385);
+            this.dataGridView1.TabIndex = 6;
+            // 
             // userHomepageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(344, 461);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.logBtn);
             this.Controls.Add(this.logoutLinkLbl);
             this.Font = new System.Drawing.Font("Microsoft JhengHei", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -56,6 +84,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logger - User Home Page";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.userHomepageForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -64,5 +93,7 @@
         #endregion
 
         private System.Windows.Forms.LinkLabel logoutLinkLbl;
+        private System.Windows.Forms.Button logBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

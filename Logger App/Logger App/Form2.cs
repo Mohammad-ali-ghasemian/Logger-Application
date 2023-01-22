@@ -24,9 +24,9 @@ namespace Logger_App
 
         private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            loginForm loginform = new loginForm();
-            this.Hide();
-            loginform.Show();
+            
+            loginForm.userhomepageform.Hide();
+            loginForm.loginform.Show();
         }
     }
 }
