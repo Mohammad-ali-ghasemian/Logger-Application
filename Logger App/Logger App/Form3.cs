@@ -30,7 +30,8 @@ namespace Logger_App
 
         private void addMemberBtn_Click(object sender, EventArgs e)
         {
-            loginForm.addmemberform.ShowDialog();
+            addMemberForm addmemberform = new addMemberForm();
+            addmemberform.ShowDialog();
         }
     }
 }

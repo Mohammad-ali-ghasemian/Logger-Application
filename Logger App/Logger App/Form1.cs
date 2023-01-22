@@ -15,7 +15,6 @@ namespace Logger_App
         public static loginForm loginform = new Logger_App.loginForm();
         public static userHomepageForm userhomepageform = new userHomepageForm();
         public static adminHomepageForm adminhomepageform = new adminHomepageForm();
-        public static addMemberForm addmemberform = new addMemberForm();
 
         public loginForm()
         {

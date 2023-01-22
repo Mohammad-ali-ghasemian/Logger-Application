@@ -16,5 +16,23 @@ namespace Logger_App
         {
             InitializeComponent();
         }
+
+        private void insertBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox && ((TextBox)control).Text == "")
+                {
+                    errorProvider1.SetError(insertBtn, "some boxes are left empty");
+                    return;
+                }
+            }
+
+            //add to database
+            //...
+            //...
+
+            this.Close();
+        }
     }
 }
