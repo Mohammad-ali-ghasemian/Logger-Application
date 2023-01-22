@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Logger_App
 {
-    public partial class Form2 : Form
+    public partial class userHomepageForm : Form
     {
-        public Form2()
+        public userHomepageForm()
         {
             InitializeComponent();
         }

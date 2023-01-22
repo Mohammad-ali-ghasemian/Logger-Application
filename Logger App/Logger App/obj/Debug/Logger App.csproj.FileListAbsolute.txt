@@ -8,3 +8,4 @@ E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.csproj.Gene
 E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.csproj.CoreCompileInputs.cache
 E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.exe
 E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.pdb
+E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger_App.userHomepageForm.resources

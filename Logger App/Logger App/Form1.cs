@@ -21,7 +21,7 @@ namespace Logger_App
         {
             if (usernameTxt.Text == "admin" && passwordTxt.Text == "admin")
             {
-                Form2 f = new Form2();
+                userHomepageForm f = new userHomepageForm();
                 this.Hide();
                 f.Show();
             }
