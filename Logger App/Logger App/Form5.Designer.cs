@@ -40,6 +40,7 @@
             this.removeUserDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.removeUserDgv.Size = new System.Drawing.Size(240, 372);
             this.removeUserDgv.TabIndex = 0;
+            this.removeUserDgv.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.removeUserDgv_UserDeletingRow);
             // 
             // removeUserForm
             // 

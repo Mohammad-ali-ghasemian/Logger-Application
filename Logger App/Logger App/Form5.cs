@@ -16,5 +16,13 @@ namespace Logger_App
         {
             InitializeComponent();
         }
+
+        private void removeUserDgv_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            //remove user from database
+            //log
+            //...
+            //...
+        }
     }
 }
