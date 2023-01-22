@@ -16,5 +16,16 @@ namespace Logger_App
         {
             InitializeComponent();
         }
+
+        private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            loginForm.adminhomepageform.Hide();
+            loginForm.loginform.Show();
+        }
+
+        private void adminHomepageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
