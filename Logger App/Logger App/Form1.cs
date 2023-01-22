@@ -12,8 +12,9 @@ namespace Logger_App
 {
     public partial class loginForm : Form
     {
-        public static userHomepageForm userhomepageform = new userHomepageForm();
         public static loginForm loginform = new Logger_App.loginForm();
+        public static userHomepageForm userhomepageform = new userHomepageForm();
+        public static adminHomepageForm adminhomepageform = new adminHomepageForm();
 
         public loginForm()
         {
@@ -22,11 +23,17 @@ namespace Logger_App
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            if (usernameTxt.Text == "admin" && passwordTxt.Text == "admin")
+            if (usernameTxt.Text == "user" && passwordTxt.Text == "user")
             {
                 this.Hide();
                 loginform.Hide();
                 userhomepageform.Show();
+            }
+            else if (usernameTxt.Text == "admin" && passwordTxt.Text == "admin")
+            {
+                this.Hide();
+                loginform.Hide();
+                adminhomepageform.Show();
             }
         }
 

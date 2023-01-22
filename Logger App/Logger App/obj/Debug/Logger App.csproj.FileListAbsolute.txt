@@ -9,3 +9,4 @@ E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.csproj.Core
 E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.exe
 E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger App.pdb
 E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger_App.userHomepageForm.resources
+E:\git\Logger-Application\Logger App\Logger App\obj\Debug\Logger_App.adminHomepageForm.resources
