@@ -85,6 +85,7 @@
             this.addMemberBtn.TabIndex = 9;
             this.addMemberBtn.Text = "add member";
             this.addMemberBtn.UseVisualStyleBackColor = false;
+            this.addMemberBtn.Click += new System.EventHandler(this.addMemberBtn_Click);
             // 
             // removeUserBtn
             // 

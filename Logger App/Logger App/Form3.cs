@@ -27,5 +27,10 @@ namespace Logger_App
         {
             Application.Exit();
         }
+
+        private void addMemberBtn_Click(object sender, EventArgs e)
+        {
+            loginForm.addmemberform.ShowDialog();
+        }
     }
 }
