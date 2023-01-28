@@ -29,11 +29,14 @@ namespace Logger_App
             }
 
             //add member to database
-            loginForm.loginform.command.CommandText = 
-                $"INSERT INTO Log VALUES('{firstnameTxt.Text}', '{lastnameTxt.Text}', '{usernameTxt.Text}','{passwordTxt.Text}', {2023 - int.Parse(birthYearTxt.Text)}, {int.Parse(salaryTxt.Text)}, '{roleTxt.Text}')";
+            loginForm.loginform.command.CommandText = $"INSERT INTO Users(firstname, lastname, username, password, age, salary, role) VALUES('{firstnameTxt.Text}', '{lastnameTxt.Text}', '{usernameTxt.Text}','{passwordTxt.Text}', {2023 - int.Parse(birthYearTxt.Text)}, {int.Parse(salaryTxt.Text)}, '{roleTxt.Text}')";
+            if (loginForm.loginform.connection.State != ConnectionState.Open)
+                loginForm.loginform.connection.Open();
+            loginForm.loginform.command.ExecuteNonQuery();
+            loginForm.loginform.connection.Close();
 
             //insert add member log
-
+            loginForm.loginform.actionLogger($"add member: {usernameTxt.Text}");
 
             this.Close();
         }
