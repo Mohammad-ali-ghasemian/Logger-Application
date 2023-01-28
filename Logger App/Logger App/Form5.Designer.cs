@@ -55,6 +55,7 @@
             this.Name = "removeUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logger - Remove User";
+            this.Load += new System.EventHandler(this.removeUserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.removeUserDgv)).EndInit();
             this.ResumeLayout(false);
 

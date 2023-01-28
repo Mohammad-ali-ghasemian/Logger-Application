@@ -38,6 +38,7 @@ namespace Logger_App
             //insert add member log
             loginForm.loginform.actionLogger($"add member: {usernameTxt.Text}");
 
+            loginForm.loginform.connection.Close();
             this.Close();
         }
     }
