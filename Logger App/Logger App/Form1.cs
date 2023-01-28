@@ -55,21 +55,17 @@ namespace Logger_App
                     loginform.Hide();
                     userhomepageform.Show();
                 }
+                command.CommandText = $"SELECT firstname from Users where username = '{usernameTxt.Text}'";
+                String firstname = (String)command.ExecuteScalar();
+                command.CommandText = $"SELECT lastname from Users where username = '{usernameTxt.Text}'";
+                String lastname = (String)command.ExecuteScalar();
+                String action = "login";
+                DateTime now = DateTime.Now;
+                String dateTime = now.ToString();
+                command.CommandText = $"INSERT INTO Log VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}')";
+                command.ExecuteNonQuery();
             }
             connection.Close();
-
-            /*if (usernameTxt.Text == "user" && passwordTxt.Text == "user")
-            {
-                this.Hide();
-                loginform.Hide();
-                userhomepageform.Show();
-            }
-            else if (usernameTxt.Text == "admin" && passwordTxt.Text == "admin")
-            {
-                this.Hide();
-                loginform.Hide();
-                adminhomepageform.Show();
-            }*/
         }
 
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -79,11 +75,11 @@ namespace Logger_App
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            /*SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT firstname from Users where username = 'maligh9'";
+            command.CommandText = "SELECT * from Users where username = 'maligh9'";
 
             DataTable dataTable = new DataTable();
 
@@ -94,17 +90,20 @@ namespace Logger_App
             userhomepageform.fillDgv(dataTable);
 
             connection.Open();
-            String dr = (String) command.ExecuteScalar();
+            object dr = command.ExecuteScalar();
             if (dr == null)
             {
                 MessageBox.Show("empty");
             }
             else
             {
-                MessageBox.Show(dr);
+                MessageBox.Show(dr.ToString());
             }
             
-            connection.Close();*/
+            connection.Close();
+
+            DateTime now = DateTime.Now;
+            MessageBox.Show(now.ToString());
         }
     }
 }
