@@ -17,6 +17,8 @@ namespace Logger_App
         public static userHomepageForm userhomepageform = new userHomepageForm();
         public static adminHomepageForm adminhomepageform = new adminHomepageForm();
 
+        public SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+        public SqlCommand command = new SqlCommand();
         public loginForm()
         {
             InitializeComponent();
@@ -24,10 +26,6 @@ namespace Logger_App
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandType = CommandType.Text;
             command.CommandText = $"SELECT username from Users where username = '{usernameTxt.Text}'";
             
             connection.Open();
@@ -75,7 +73,11 @@ namespace Logger_App
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+            command.Connection = connection;
+            command.CommandType = CommandType.Text;
+            loginform.command.Connection = connection;
+            loginform.command.CommandType = CommandType.Text;
+            /*SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -103,7 +105,7 @@ namespace Logger_App
             connection.Close();
 
             DateTime now = DateTime.Now;
-            MessageBox.Show(now.ToString());
+            MessageBox.Show(now.ToString());*/
         }
     }
 }
