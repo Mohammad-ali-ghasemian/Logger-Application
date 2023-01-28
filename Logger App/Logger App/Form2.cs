@@ -27,5 +27,10 @@ namespace Logger_App
             loginForm.userhomepageform.Hide();
             loginForm.loginform.Show();
         }
+
+        public void fillDgv(DataTable dataTable)
+        {
+            userDgv.DataSource = dataTable;
+        }
     }
 }

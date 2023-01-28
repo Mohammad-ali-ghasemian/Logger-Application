@@ -128,6 +128,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logger - Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.loginForm_FormClosed);
+            this.Load += new System.EventHandler(this.loginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
