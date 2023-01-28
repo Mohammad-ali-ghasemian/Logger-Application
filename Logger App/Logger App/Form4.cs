@@ -28,9 +28,12 @@ namespace Logger_App
                 }
             }
 
-            //add to database
-            //...
-            //...
+            //add member to database
+            loginForm.loginform.command.CommandText = 
+                $"INSERT INTO Log VALUES('{firstnameTxt.Text}', '{lastnameTxt.Text}', '{usernameTxt.Text}','{passwordTxt.Text}', {2023 - int.Parse(birthYearTxt.Text)}, {int.Parse(salaryTxt.Text)}, '{roleTxt.Text}')";
+
+            //insert add member log
+
 
             this.Close();
         }

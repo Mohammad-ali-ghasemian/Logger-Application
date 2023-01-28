@@ -26,6 +26,7 @@ namespace Logger_App
         private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             loginForm.loginform.actionLogger("logout");
+            //clear data grid view
             dataTable.Rows.Clear();
             userDgv.Refresh();
 
