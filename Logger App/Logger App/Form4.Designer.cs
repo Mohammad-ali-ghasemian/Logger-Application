@@ -87,7 +87,7 @@
             this.textBox3.Location = new System.Drawing.Point(15, 217);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(217, 22);
-            this.textBox3.TabIndex = 5;
+            this.textBox3.TabIndex = 9;
             // 
             // birthYearLbl
             // 
@@ -95,16 +95,16 @@
             this.birthYearLbl.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthYearLbl.Location = new System.Drawing.Point(12, 199);
             this.birthYearLbl.Name = "birthYearLbl";
-            this.birthYearLbl.Size = new System.Drawing.Size(68, 17);
+            this.birthYearLbl.Size = new System.Drawing.Size(130, 17);
             this.birthYearLbl.TabIndex = 4;
-            this.birthYearLbl.Text = "Birth Year";
+            this.birthYearLbl.Text = "Birth Year(ex. 1998)";
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(15, 264);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(217, 22);
-            this.textBox4.TabIndex = 7;
+            this.textBox4.TabIndex = 11;
             // 
             // salaryLbl
             // 
@@ -121,7 +121,7 @@
             this.textBox5.Location = new System.Drawing.Point(15, 312);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(217, 22);
-            this.textBox5.TabIndex = 9;
+            this.textBox5.TabIndex = 13;
             // 
             // roleLbl
             // 
@@ -138,7 +138,7 @@
             this.textBox6.Location = new System.Drawing.Point(15, 121);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(217, 22);
-            this.textBox6.TabIndex = 11;
+            this.textBox6.TabIndex = 5;
             // 
             // usernameLbl
             // 
@@ -155,7 +155,7 @@
             this.textBox7.Location = new System.Drawing.Point(15, 169);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(217, 22);
-            this.textBox7.TabIndex = 13;
+            this.textBox7.TabIndex = 7;
             // 
             // passwordLbl
             // 
