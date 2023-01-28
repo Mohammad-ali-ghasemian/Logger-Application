@@ -17,8 +17,8 @@ namespace Logger_App
         public static userHomepageForm userhomepageform = new userHomepageForm();
         public static adminHomepageForm adminhomepageform = new adminHomepageForm();
 
-        public static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
-        public static SqlCommand command = new SqlCommand();
+        public SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+        public SqlCommand command = new SqlCommand();
 
         public String userLoggedIn;
         public loginForm()
@@ -76,7 +76,7 @@ namespace Logger_App
             setCommand();
             loginform.setCommand();
         }
-        public void setCommand()
+        private void setCommand()
         {
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -91,9 +91,11 @@ namespace Logger_App
             String firstname = (String)command.ExecuteScalar();
             command.CommandText = $"SELECT lastname from Users where username = '{userLoggedIn}'";
             String lastname = (String)command.ExecuteScalar();
+            command.CommandText = $"SELECT role from Users where username = '{userLoggedIn}'";
+            String role = (String)command.ExecuteScalar();
             DateTime now = DateTime.Now;
             String dateTime = now.ToString();
-            command.CommandText = $"INSERT INTO Log VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}')";
+            command.CommandText = $"INSERT INTO Log VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}', '{role}')";
             command.ExecuteNonQuery();
         }
     }

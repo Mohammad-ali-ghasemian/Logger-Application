@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,23 @@ namespace Logger_App
         private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             loginForm.loginform.actionLogger("logout");
+            userDgv.Rows.Clear();
+            userDgv.Refresh();
 
             loginForm.userhomepageform.Hide();
             loginForm.loginform.Show();
+        }
+
+        private void logBtn_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+
+            loginForm.loginform.command.CommandText = "SELECT * from Log where role != 'admin'";
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = loginForm.loginform.command;
+            adapter.Fill(dataTable);
+            userDgv.DataSource = dataTable;
         }
     }
 }

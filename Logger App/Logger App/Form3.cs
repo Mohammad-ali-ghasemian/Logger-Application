@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,18 @@ namespace Logger_App
         {
             removeUserForm removeuserform = new removeUserForm();
             removeuserform.ShowDialog();
+        }
+
+        private void logBtn_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+
+            loginForm.loginform.command.CommandText = "SELECT * from Log";
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = loginForm.loginform.command;
+            adapter.Fill(dataTable);
+            adminDgv.DataSource = dataTable;
         }
     }
 }

@@ -59,6 +59,7 @@
             this.logBtn.TabIndex = 5;
             this.logBtn.Text = "see log";
             this.logBtn.UseVisualStyleBackColor = false;
+            this.logBtn.Click += new System.EventHandler(this.logBtn_Click);
             // 
             // userDgv
             // 
