@@ -29,8 +29,9 @@ namespace Logger_App
         private void loginBtn_Click(object sender, EventArgs e)
         {
             command.CommandText = $"SELECT username from Users where username = '{usernameTxt.Text}'";
-            
-            connection.Open();
+
+            if (connection.State != ConnectionState.Open)
+                connection.Open();
             String username = (String)command.ExecuteScalar();
             command.CommandText = $"SELECT password from Users where username = '{usernameTxt.Text}'";
             String password = (String)command.ExecuteScalar();

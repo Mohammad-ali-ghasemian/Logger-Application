@@ -20,6 +20,10 @@ namespace Logger_App
 
         private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            loginForm.loginform.actionLogger("logout");
+            dataTable.Rows.Clear();
+            adminDgv.Refresh();
+
             loginForm.adminhomepageform.Hide();
             loginForm.loginform.Show();
         }
@@ -41,10 +45,9 @@ namespace Logger_App
             removeuserform.ShowDialog();
         }
 
+        DataTable dataTable = new DataTable();
         private void logBtn_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-
             loginForm.loginform.command.CommandText = "SELECT * from Log";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
