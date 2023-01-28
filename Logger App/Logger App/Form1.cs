@@ -17,8 +17,10 @@ namespace Logger_App
         public static userHomepageForm userhomepageform = new userHomepageForm();
         public static adminHomepageForm adminhomepageform = new adminHomepageForm();
 
-        public SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
-        public SqlCommand command = new SqlCommand();
+        public static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+        public static SqlCommand command = new SqlCommand();
+
+        public String userLoggedIn;
         public loginForm()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace Logger_App
             command.CommandText = $"SELECT password from Users where username = '{usernameTxt.Text}'";
             String password = (String)command.ExecuteScalar();
 
+            //check member info with database
             if (username == null || password != passwordTxt.Text)
             {
                 errorProvider1.SetError(loginBtn, "wrong username or password");
@@ -53,15 +56,12 @@ namespace Logger_App
                     loginform.Hide();
                     userhomepageform.Show();
                 }
-                command.CommandText = $"SELECT firstname from Users where username = '{usernameTxt.Text}'";
-                String firstname = (String)command.ExecuteScalar();
-                command.CommandText = $"SELECT lastname from Users where username = '{usernameTxt.Text}'";
-                String lastname = (String)command.ExecuteScalar();
-                String action = "login";
-                DateTime now = DateTime.Now;
-                String dateTime = now.ToString();
-                command.CommandText = $"INSERT INTO Log VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}')";
-                command.ExecuteNonQuery();
+                //remember which user logged in
+                userLoggedIn = usernameTxt.Text;
+                loginform.userLoggedIn = usernameTxt.Text;
+
+                //insert login log
+                actionLogger("login");
             }
             connection.Close();
         }
@@ -73,39 +73,25 @@ namespace Logger_App
 
         private void loginForm_Load(object sender, EventArgs e)
         {
+            setCommand();
+            loginform.setCommand();
+        }
+        public void setCommand()
+        {
             command.Connection = connection;
             command.CommandType = CommandType.Text;
-            loginform.command.Connection = connection;
-            loginform.command.CommandType = CommandType.Text;
-            /*SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * from Users where username = 'maligh9'";
+        }
 
-            DataTable dataTable = new DataTable();
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-            adapter.Fill(dataTable);
-
-            userhomepageform.fillDgv(dataTable);
-
-            connection.Open();
-            object dr = command.ExecuteScalar();
-            if (dr == null)
-            {
-                MessageBox.Show("empty");
-            }
-            else
-            {
-                MessageBox.Show(dr.ToString());
-            }
-            
-            connection.Close();
-
+        public void actionLogger(String action)
+        {
+            command.CommandText = $"SELECT firstname from Users where username = '{userLoggedIn}'";
+            String firstname = (String)command.ExecuteScalar();
+            command.CommandText = $"SELECT lastname from Users where username = '{userLoggedIn}'";
+            String lastname = (String)command.ExecuteScalar();
             DateTime now = DateTime.Now;
-            MessageBox.Show(now.ToString());*/
+            String dateTime = now.ToString();
+            command.CommandText = $"INSERT INTO Log VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}')";
+            command.ExecuteNonQuery();
         }
     }
 }

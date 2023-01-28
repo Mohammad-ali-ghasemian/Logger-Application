@@ -24,6 +24,8 @@ namespace Logger_App
 
         private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
+
             loginForm.userhomepageform.Hide();
             loginForm.loginform.Show();
         }
