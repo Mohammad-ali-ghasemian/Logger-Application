@@ -24,12 +24,41 @@ namespace Logger_App
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            String username = usernameTxt.Text;
-            String password = passwordTxt.Text;
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandType = CommandType.Text;
+            command.CommandText = $"SELECT username from Users where username = '{usernameTxt.Text}'";
+            
+            connection.Open();
+            String username = (String)command.ExecuteScalar();
+            command.CommandText = $"SELECT password from Users where username = '{usernameTxt.Text}'";
+            String password = (String)command.ExecuteScalar();
 
+            if (username == null || password != passwordTxt.Text)
+            {
+                errorProvider1.SetError(loginBtn, "wrong username or password");
+            }
+            else
+            {
+                command.CommandText = $"SELECT [role] from Users where username = '{usernameTxt.Text}'";
+                String role = (String)command.ExecuteScalar();
+                if (role == "admin")
+                {
+                    this.Hide();
+                    loginform.Hide();
+                    adminhomepageform.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    loginform.Hide();
+                    userhomepageform.Show();
+                }
+            }
+            connection.Close();
 
-
-            if (usernameTxt.Text == "user" && passwordTxt.Text == "user")
+            /*if (usernameTxt.Text == "user" && passwordTxt.Text == "user")
             {
                 this.Hide();
                 loginform.Hide();
@@ -40,7 +69,7 @@ namespace Logger_App
                 this.Hide();
                 loginform.Hide();
                 adminhomepageform.Show();
-            }
+            }*/
         }
 
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -50,11 +79,11 @@ namespace Logger_App
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
+            /*SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\database\loggerDB.mdf;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT firstname from Users where username = 'maligh99'";
+            command.CommandText = "SELECT firstname from Users where username = 'maligh9'";
 
             DataTable dataTable = new DataTable();
 
@@ -63,6 +92,19 @@ namespace Logger_App
             adapter.Fill(dataTable);
 
             userhomepageform.fillDgv(dataTable);
+
+            connection.Open();
+            String dr = (String) command.ExecuteScalar();
+            if (dr == null)
+            {
+                MessageBox.Show("empty");
+            }
+            else
+            {
+                MessageBox.Show(dr);
+            }
+            
+            connection.Close();*/
         }
     }
 }
