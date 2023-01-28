@@ -24,15 +24,10 @@ namespace Logger_App
 
         private void logoutLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            loginForm.loginform.actionLogger("logout");
 
             loginForm.userhomepageform.Hide();
             loginForm.loginform.Show();
-        }
-
-        public void fillDgv(DataTable dataTable)
-        {
-            userDgv.DataSource = dataTable;
         }
     }
 }

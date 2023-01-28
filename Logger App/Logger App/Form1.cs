@@ -84,6 +84,9 @@ namespace Logger_App
 
         public void actionLogger(String action)
         {
+            if(connection.State != ConnectionState.Open)
+                connection.Open();
+
             command.CommandText = $"SELECT firstname from Users where username = '{userLoggedIn}'";
             String firstname = (String)command.ExecuteScalar();
             command.CommandText = $"SELECT lastname from Users where username = '{userLoggedIn}'";
