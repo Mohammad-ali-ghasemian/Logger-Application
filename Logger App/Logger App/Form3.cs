@@ -49,6 +49,9 @@ namespace Logger_App
         DataTable dataTable = new DataTable();
         private void logBtn_Click(object sender, EventArgs e)
         {
+            dataTable.Rows.Clear();
+            adminDgv.Refresh();
+
             loginForm.loginform.command.CommandText = "SELECT * from Log";
 
             SqlDataAdapter adapter = new SqlDataAdapter();

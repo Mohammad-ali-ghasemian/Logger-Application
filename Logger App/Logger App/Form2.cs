@@ -37,6 +37,9 @@ namespace Logger_App
         DataTable dataTable = new DataTable();
         private void logBtn_Click(object sender, EventArgs e)
         {
+            dataTable.Rows.Clear();
+            userDgv.Refresh();
+
             loginForm.loginform.command.CommandText = "SELECT * from Log where role != 'admin'";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
