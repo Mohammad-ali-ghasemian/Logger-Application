@@ -96,7 +96,7 @@ namespace Logger_App
             String role = (String)command.ExecuteScalar();
             DateTime now = DateTime.Now;
             String dateTime = now.ToString();
-            command.CommandText = $"INSERT INTO Log VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}', '{role}')";
+            command.CommandText = $"INSERT INTO Log(action, time, firstname, lastname, role) VALUES('{action}', '{dateTime}', '{firstname}', '{lastname}', '{role}')";
             command.ExecuteNonQuery();
         }
     }
